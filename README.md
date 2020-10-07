@@ -7,11 +7,17 @@ See [below](#building-yourself) for links to specific checkpoints.
 
 ## Testing
 
+```sh
 git clone https://github.com/Jboonie/caprover-docker-mozillatts
+```
 
+```sh
 docker build .
+```
 
+```sh
 docker run -it -p 5002:5002 --name yourname ####(image number here)#####
+```
 
 Visit http://localhost:5002 for web interface.
 
@@ -20,15 +26,17 @@ Do HTTP GET at http://localhost:5002/api/tts?text=your%20sentence to get WAV aud
 ## Deploying
 1) Create Caprover App
 
-2) Download
+2) Clone:
 ```sh
 git clone https://github.com/Jboonie/caprover-docker-mozillatts
 ```
 
-3) Deploy via Captain Rover CLI
+3) Deploy via Captain Rover CLI:
 ```sh
 caprover deploy
 ```
+
+Visit https://caprover.com/ for more information about captain and the captain cli.
 
 ## Building Yourself
 
