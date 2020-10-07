@@ -1,9 +1,7 @@
-#!/usr/bin/env python3
 import io
 import os
 import time
 from pathlib import Path
-
 import torch
 from flask import Flask, Response, render_template, request
 from flask_cors import CORS
@@ -17,7 +15,6 @@ from TTS.vocoder.utils.generic_utils import setup_generator
 _DIR = Path(__file__).parent
 
 # -----------------------------------------------------------------------------
-
 
 def tts(model, text, CONFIG, use_cuda: bool, ap, use_gl: bool):
     waveform, alignment, mel_spec, mel_postnet_spec, stop_tokens, inputs = synthesis(
@@ -117,11 +114,9 @@ def api_tts():
         ap.save_wav(wav, out)
         return Response(out.getvalue(), mimetype="audio/wav")
 
-
 @app.route("/")
 def index():
     return render_template("index.html")
-
 
 # -----------------------------------------------------------------------------
 

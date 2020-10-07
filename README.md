@@ -5,21 +5,29 @@ Docker image for [Mozilla TTS](https://github.com/mozilla/TTS).
 Includes [@erogol's](https://github.com/erogol) pre-built LJSpeech Tacotron2 English model and Multiband MelGAN vocoder.
 See [below](#building-yourself) for links to specific checkpoints.
 
-## Using
+## Testing
 
-```sh
-$ docker run -it -p 5002:5002 synesthesiam/mozillatts
-```
+git clone https://github.com/Jboonie/caprover-docker-mozillatts
+
+docker build .
+
+docker run -it -p 5002:5002 --name yourname ####(image number here)#####
 
 Visit http://localhost:5002 for web interface.
 
 Do HTTP GET at http://localhost:5002/api/tts?text=your%20sentence to get WAV audio back:
 
+## Deploying
+1) Create Caprover App
+
+2) Download
 ```sh
-$ curl -G --output - \
-    --data-urlencode 'text=Welcome to the world of speech synthesis!' \
-    'http://localhost:5002/api/tts' | \
-    aplay
+git clone https://github.com/Jboonie/caprover-docker-mozillatts
+```
+
+3) Deploy via Captain Rover CLI
+```sh
+caprover deploy
 ```
 
 ## Building Yourself
@@ -31,4 +39,7 @@ The Docker image is built using [these instructions](https://colab.research.goog
 * [`vocoder/config.json`](https://drive.google.com/uc?id=1Rd0R_nRCrbjEdpOwq6XwZAktvugiBvmu)
 * [`vocoder/checkpoint_1450000.pth.tar`](https://drive.google.com/uc?id=1Ty5DZdOc0F7OTGj9oJThYbL5iVu_2G0K)
 
+## Credit
+Credit goes to Synesthesiam
+https://github.com/synesthesiam
 
